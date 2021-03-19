@@ -1,0 +1,26 @@
+from modulos import *
+class Relatorios():
+	def printCliente(self):
+		webbrowser.open("cliente.pdf")
+	def geraRelatCliente(self):
+		self.c = canvas.Canvas("cliente.pdf")
+		self.codigoRel = self.codigo_entry.get()
+		self.nomeRel = self.nome_entry.get()
+		self.foneRel = self.fone_entry.get()
+		self.cidadeRel = self.cidade_entry.get()
+		self.c.setFont("Helvetica-Bold", 20)
+		self.c.drawString(200, 800, 'Ficha do cliente')
+		self.c.setFont("Helvetica-Bold", 10)
+		self.c.drawString(50, 770, 'Codigo:')
+		self.c.drawString(50, 750, 'Nome:')
+		self.c.drawString(50, 730, 'Telefone:')
+		self.c.drawString(50, 710, 'Cidade:')
+		self.c.setFont("Helvetica", 10)
+		self.c.drawString(100, 770, self.codigoRel)
+		self.c.drawString(100, 750, self.nomeRel)
+		self.c.drawString(100, 730, self.foneRel)
+		self.c.drawString(100, 710, self.cidadeRel)
+		self.c.rect(20, 700, 560, 90, fill=False, stroke=True)
+		self.c.showPage()
+		self.c.save()
+		self.printCliente()
